@@ -26,6 +26,7 @@ Gem::Specification.new do |s|
     "Rakefile",
     "VERSION",
     "lib/r-fxxk.rb",
+    "r-fxxk.gemspec",
     "spec/r-fxxk_spec.rb",
     "spec/spec_helper.rb",
     "spec/test_data/hello.bf",
