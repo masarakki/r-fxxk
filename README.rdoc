@@ -1,9 +1,29 @@
 = r-fxxk
 
-Description goes here.
+An BrainFuck implementation, and generator for your own BrainFuck-like interpreter.
+
+== Example of Ook! (http://ja.wikipedia.org/wiki/Ook!)
+ class Ook < BrainFuck
+  nxt 'Ook. Ook?'
+  prv 'Ook? Ook.'
+  inc 'Ook. Ook.'
+  dec 'Ook! Ook!'
+  put 'Ook! Ook.'
+  get 'Ook. Ook!'
+  opn 'Ook! Ook?'
+  cls 'Ook? Ook!'
+ end
+
+and you can run:
+ Ook.new.fuck(read('hello.ook'))
+
+you can generate with initialize options:
+ BrainFuck.new(nxt: 'M', prv: 'O', inc: 'N', dec: 'A', get: 'm', put: 'o', opn: 'n', cls: 'a').fuck(read('hello.mona'))
+
+SEE ALSO spec/r-fxxk_spec.rb
 
 == Contributing to r-fxxk
- 
+
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
 * Fork the project
@@ -14,6 +34,6 @@ Description goes here.
 
 == Copyright
 
-Copyright (c) 2011 Yamada Masaki. See LICENSE.txt for
+Copyright (c) 2011 masarakki. See LICENSE.txt for
 further details.
 
