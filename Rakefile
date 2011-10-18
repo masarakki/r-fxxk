@@ -17,10 +17,10 @@ Jeweler::Tasks.new do |gem|
   gem.name = "r-fxxk"
   gem.homepage = "http://github.com/masarakki/r-fxxk"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{generate your own brain-fxxk-like language}
+  gem.description = %Q{generate your own brain-fxxk-like language}
   gem.email = "masaki@hisme.net"
-  gem.authors = ["Yamada Masaki"]
+  gem.authors = ["masarakki"]
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new
