@@ -24,13 +24,18 @@ class BrainFuck
   end
 
   def compile(src)
+    BrainFuck.new.translate(self, src)
+  end
+
+  def translate(other, src)
+    other = other.new if other.kind_of?(Class)
     cur = 0
-    inv = operations.invert
-    reg = Regexp.compile "(#{operations.values.map{|v| Regexp.quote(v) }.join('|')})"
+    inv = other.operations.invert
+    reg = Regexp.compile "(#{other.operations.values.map{|v| Regexp.quote(v) }.join('|')})"
     dst = ''
     while matches = reg.match(src, cur)
       op = inv[matches[1]]
-      dst += self.class.bf_mapping[op]
+      dst += operations[op]
       cur = src.index(reg, cur) + matches[1].length
     end
     dst

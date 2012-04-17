@@ -44,6 +44,9 @@ describe BrainFuck do
     it "fuck(hello.mona) should be 'Hello World\\n'" do
       subject.fuck(src('hello.mona')).should eq "Hello World!\n"
     end
+    it "translate(BrainFuck.new, hello.bf) should == hello.mona" do
+      subject.translate(BrainFuck, src('hello.bf')).strip.should eq src('hello.mona').strip
+    end
   end
 
   context 'customized class' do
@@ -60,4 +63,5 @@ describe BrainFuck do
       subject.fuck(src('hello.ook')).should eq "Hello World!\n"
     end
   end
+
 end
