@@ -47,6 +47,7 @@ describe BrainFuck do
     it "translate(BrainFuck.new, hello.bf) should == hello.mona" do
       subject.translate(BrainFuck, src('hello.bf')).strip.should eq src('hello.mona').strip
     end
+    its(:hello_world) { should == src('hello.mona').strip }
   end
 
   context 'customized class' do
