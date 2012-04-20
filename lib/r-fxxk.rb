@@ -64,9 +64,28 @@ class BrainFuck
         output << cell[ptr].chr
       when :get
       when :opn
-        next_cur = src.index(self.class.bf_mapping[:cls], cur) + 1 if cell[ptr] == 0
+        if cell[ptr] == 0
+          open_count = 1
+          buf_cur = cur
+          while open_count > 0
+            open_count.times do
+              next_cur = src.index(self.class.bf_mapping[:cls], buf_cur)
+              open_count = src[buf_cur+1..next_cur].count(self.class.bf_mapping[:opn])
+              buf_cur = next_cur
+            end
+          end
+          next_cur = next_cur + 1
+        end
       when :cls
-        next_cur = src.rindex(self.class.bf_mapping[:opn], cur)
+        close_count = 1
+        buf_cur = cur
+        while close_count > 0
+          close_count.times do
+            next_cur = src.rindex(self.class.bf_mapping[:opn], buf_cur)
+            close_count = src[next_cur..buf_cur-1].count(self.class.bf_mapping[:cls])
+            buf_cur = next_cur
+          end
+        end
       end
       cur = next_cur || src.index(reg, cur) + matches[1].length
     end
