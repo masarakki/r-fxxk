@@ -1,4 +1,4 @@
-class BrainFuck
+class Brainfuck
   def initialize(options = {})
     self.class.default_mapping.each do |key, default|
       operations[key] = options.has_key?(key) ? options[key] : default
@@ -24,7 +24,7 @@ class BrainFuck
   end
 
   def compile(src)
-    BrainFuck.new.translate(self, src)
+    Brainfuck.new.translate(self, src)
   end
 
   def translate(other, src)
@@ -42,7 +42,7 @@ class BrainFuck
   end
 
   def hello_world
-    translate(BrainFuck, '>+++++++++[<++++++++>-]<.>+++++++[<++++>-]<+.+++++++..+++.[-]>++++++++[<++++>-]<.>+++++++++++[<+++++>-]<.>++++++++[<+++>-]<.+++.------.--------.[-]>++++++++[<++++>-]<+.[-]++++++++++.')
+    translate(Brainfuck, '>+++++++++[<++++++++>-]<.>+++++++[<++++>-]<+.+++++++..+++.[-]>++++++++[<++++>-]<.>+++++++++++[<+++++>-]<.>++++++++[<+++>-]<.+++.------.--------.[-]>++++++++[<++++>-]<+.[-]++++++++++.')
   end
 
   def fuck(src)
@@ -97,10 +97,13 @@ class BrainFuck
   end
 
   class << self
-    BrainFuck.default_mapping.keys.each do |op|
+    Brainfuck.default_mapping.keys.each do |op|
       define_method(op) do |val|
         default_mapping[op] = val
       end
     end
   end
 end
+
+# For backwards compatibility.
+BrainFuck = Brainfuck
