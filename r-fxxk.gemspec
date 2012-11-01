@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = "r-fxxk"
-  s.version = "0.3.0"
+  s.version = "0.4.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["masarakki"]
-  s.date = "2012-04-20"
+  s.date = "2012-11-01"
   s.description = "generate your own brain-fxxk-like language"
   s.email = "masaki@hisme.net"
   s.extra_rdoc_files = [
@@ -35,7 +35,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://github.com/masarakki/r-fxxk"
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = "1.8.21"
+  s.rubygems_version = "1.8.24"
   s.summary = "generate your own brain-fxxk-like language"
 
   if s.respond_to? :specification_version then
