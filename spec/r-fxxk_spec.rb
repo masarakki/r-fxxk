@@ -1,6 +1,6 @@
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
-class Ook < BrainFuck
+class Ook < Brainfuck
   nxt 'Ook. Ook?'
   prv 'Ook? Ook.'
   inc 'Ook. Ook.'
@@ -15,9 +15,9 @@ def src(file)
   open(File.expand_path(File.dirname(__FILE__) + "/test_data/#{file}")).read
 end
 
-describe BrainFuck do
-  context 'default BrainFuck' do
-    subject { BrainFuck.new }
+describe Brainfuck do
+  context 'default Brainfuck' do
+    subject { Brainfuck.new }
     its(:nxt) { should eq '>' }
     its(:prv) { should eq '<' }
     its(:inc) { should eq '+' }
@@ -32,7 +32,7 @@ describe BrainFuck do
   end
 
   context 'customize in initialize' do
-    subject { BrainFuck.new(nxt: 'M', prv: 'O', inc: 'N', dec: 'A', get: 'm', put: 'o', opn: 'n', cls: 'a') }
+    subject { Brainfuck.new(nxt: 'M', prv: 'O', inc: 'N', dec: 'A', get: 'm', put: 'o', opn: 'n', cls: 'a') }
     its(:nxt) { should eq 'M' }
     its(:prv) { should eq 'O' }
     its(:inc) { should eq 'N' }
@@ -44,8 +44,8 @@ describe BrainFuck do
     it "fuck(hello.mona) should be 'Hello World\\n'" do
       subject.fuck(src('hello.mona')).should eq "Hello World!\n"
     end
-    it "translate(BrainFuck.new, hello.bf) should == hello.mona" do
-      subject.translate(BrainFuck, src('hello.bf')).strip.should eq src('hello.mona').strip
+    it "translate(Brainfuck.new, hello.bf) should == hello.mona" do
+      subject.translate(Brainfuck, src('hello.bf')).strip.should eq src('hello.mona').strip
     end
     its(:hello_world) { should == src('hello.mona').strip }
   end
